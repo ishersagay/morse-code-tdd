@@ -1,9 +1,12 @@
 import {arrToMorse} from "./translator.js";
 
-let value = document.getElementsByClassName(`.value`);
-const button = document.getElementsByClassName(`.morse__btn`);
-button = addEventListener("submit", () => {
- console.log(arrToMorse(value))
-})
+const translate = document.querySelector(".morse__btn");
+const output = document.querySelector(".morse_output");
 
-console.log(value)
+
+translate.addEventListener("click", evt => {
+ const userInput = document.querySelector(".english_value").value
+ let morseCode = arrToMorse(userInput)
+ output.innerHTML = morseCode
+ console.log(morseCode)
+})
